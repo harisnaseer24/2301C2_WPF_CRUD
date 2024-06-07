@@ -21,10 +21,12 @@
         <DataGrid x:Name="studentGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="250,94,19,172"/>
         <Button x:Name="insertBtn" Content="Clear" HorizontalAlignment="Left" Margin="37,340,0,0" VerticalAlignment="Top" Width="176" Height="36" Background="#FF28C3C7" Foreground="White" BorderBrush="DimGray" FontSize="16" FontFamily="Bodoni MT" Click="ClearBtn_Click" />
 
-        <Button x:Name="updBtn" Content="Update" HorizontalAlignment="Left" Margin="270,313,0,0" VerticalAlignment="Top" Width="176" Height="36" Background="#FFD3D436" Foreground="White" BorderBrush="DimGray" FontSize="16" FontFamily="Bodoni MT"  />
-        <Button x:Name="dltBtn" Content="Delete" HorizontalAlignment="Left" Margin="468,313,0,0" VerticalAlignment="Top" Width="176" Height="36" Background="#FFDA3737" Foreground="White" BorderBrush="DimGray" FontSize="16" FontFamily="Bodoni MT"  />
+        <Button x:Name="updBtn" Content="Update" HorizontalAlignment="Left" Margin="272,341,0,0" VerticalAlignment="Top" Width="176" Height="36" Background="#FFD3D436" Foreground="White" BorderBrush="DimGray" FontSize="16" FontFamily="Bodoni MT"  />
+        <Button x:Name="dltBtn" Content="Delete" HorizontalAlignment="Left" Margin="474,339,0,0" VerticalAlignment="Top" Width="176" Height="36" Background="#FFDA3737" Foreground="White" BorderBrush="DimGray" FontSize="16" FontFamily="Bodoni MT" Click="dltStudent" />
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="250,26,0,0" TextWrapping="Wrap" Text="Aptech Student Details" VerticalAlignment="Top" FontSize="35" TextAlignment="Center" FontStyle="Italic" FontWeight="UltraBold" FontStretch="SemiExpanded" Width="531"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="27,41,0,0" TextWrapping="Wrap" Text="Enter Student Details" VerticalAlignment="Top" FontSize="20" FontStyle="Italic" FontWeight="UltraBlack"/>
+        <TextBox x:Name="sid" HorizontalAlignment="Center" Margin="0,290,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="98"/>
+        <Label x:Name="sid_label" Content="Enter Student Id" HorizontalAlignment="Left" Margin="250,286,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
