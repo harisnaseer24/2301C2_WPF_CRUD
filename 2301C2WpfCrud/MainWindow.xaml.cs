@@ -135,26 +135,17 @@ namespace _2301C2WpfCrud
                     email.Text = reader["email"].ToString();
                     cellno.Text = reader["cellno"].ToString();
                     city.Text = reader["city"].ToString();
-
                 }
                 else
                 {
                     MessageBox.Show("Invalid Id", "Invalid Id", MessageBoxButton.OK, MessageBoxImage.Error);
-
                 }
-
-
                 Con.Close();
-
-               
-               
-
             }
             else
             {
                 MessageBox.Show("Student id is required to update a record", "Can't Update Student", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
 
         private void UpdateStudent(object sender, RoutedEventArgs e)
