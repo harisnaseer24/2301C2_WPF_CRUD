@@ -106,7 +106,7 @@ namespace _2301C2WpfCrud
                 deleteStd.Parameters.AddWithValue("@sid", sid.Text);
                 deleteStd.ExecuteNonQuery();
                 Con.Close();
-                //if(row > 0)
+               
                 MessageBox.Show("Student deleted Successfully","Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 LoadData();
                 ClearData();
@@ -117,6 +117,67 @@ namespace _2301C2WpfCrud
                 MessageBox.Show("Student id is required to delete a record", "Can't Delete Student", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+        }
+
+        private void GetStudDetails(object sender, RoutedEventArgs e)
+        {
+            if (sid.Text != string.Empty)
+            {
+                SqlCommand getStud = new SqlCommand("SELECT * FROM students WHERE id = @sid", Con);
+                Con.Open();
+                getStud.CommandType = CommandType.Text;
+                getStud.Parameters.AddWithValue("@sid", sid.Text);
+                SqlDataReader reader = getStud.ExecuteReader();
+                if (reader.Read())
+                {
+                    uname.Text = reader["fullname"].ToString();
+                    age.Text = reader["age"].ToString();
+                    email.Text = reader["email"].ToString();
+                    cellno.Text = reader["cellno"].ToString();
+                    city.Text = reader["city"].ToString();
+
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Id", "Invalid Id", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+
+
+                Con.Close();
+
+               
+               
+
+            }
+            else
+            {
+                MessageBox.Show("Student id is required to update a record", "Can't Update Student", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+        private void UpdateStudent(object sender, RoutedEventArgs e)
+        {
+            if (IsValid())
+            {
+                SqlCommand updateStudentDet = new SqlCommand("Update students set fullname=@fname, email=@email, age=@age, cellno=@cell, city= @city WHERE id = @sid;", Con);
+                Con.Open();
+                updateStudentDet.CommandType = CommandType.Text;
+
+                updateStudentDet.Parameters.AddWithValue("@fname", uname.Text);
+                updateStudentDet.Parameters.AddWithValue("@email", email.Text);
+                updateStudentDet.Parameters.AddWithValue("@age", age.Text);
+                updateStudentDet.Parameters.AddWithValue("@cell", cellno.Text);
+                updateStudentDet.Parameters.AddWithValue("@city", city.Text);
+                updateStudentDet.Parameters.AddWithValue("@sid", sid.Text);
+
+                updateStudentDet.ExecuteNonQuery();
+                Con.Close();
+                MessageBox.Show("Student Updated Successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                LoadData();
+                ClearData();
+            }
         }
     }
 }
